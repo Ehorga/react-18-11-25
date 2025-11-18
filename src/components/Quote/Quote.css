@@ -1,0 +1,18 @@
+.quote{
+    background-color: rgb(236, 236, 239);
+    text-align: center;
+    width: 80%;
+    min-width: 300px;
+    max-width: 600px;
+    border: 1px black solid;
+    border-radius: 10px;
+    margin: auto;
+    padding: 15px;
+}
+.author{
+    text-align: right;
+    
+}
+.quote:hover{
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.241);
+}
