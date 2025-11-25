@@ -1,10 +1,12 @@
 import React from "react";
-import "./Quote.css"
-const Quote = () => {
+import styles from "./Quote.module.css";
+
+const Quote = (props) => {
+  const { text, author } = props;
   return (
-    <blockquote className="quote">
-      <p>“Найкращий спосіб почати — перестати говорити і почати робити.”</p>
-      <p className="author">— Волт Дісней</p>
+    <blockquote className={styles.quote}>
+      <p>{text}</p>
+      <p className={styles.author}>— {author}</p>
     </blockquote>
   );
 };

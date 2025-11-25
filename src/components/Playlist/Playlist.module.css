@@ -1,0 +1,11 @@
+.playlist{
+    display: flex;
+    justify-content: center;
+    max-width: 800px;
+    margin: auto;
+    gap: 15px;
+
+}
+h2{
+    text-align: center;
+}
