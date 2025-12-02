@@ -5,10 +5,10 @@ import QuoteList from "./components/QuoteList/quoteList";
 
 const App = () => {
   return (
-    <div>
+    <>
       <QuoteList /> 
       <Playlist />
-    </div>
+    </>
   );
 };
 
