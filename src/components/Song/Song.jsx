@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import styles from "./Song.module.css";
 
@@ -26,6 +27,14 @@ const Song = (props) => {
       </div>
     </article>
   );
+};
+Song.propTypes = {
+  song: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    artist: PropTypes.string.isRequired,
+    genre: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Song;

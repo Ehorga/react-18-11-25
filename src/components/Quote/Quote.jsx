@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import React, { useState } from "react";
 import styles from "./Quote.module.css";
 
@@ -19,5 +20,8 @@ const Quote = (props) => {
     </blockquote>
   );
 };
-
+Quote.propTypes = {
+  text: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+};
 export default Quote;
