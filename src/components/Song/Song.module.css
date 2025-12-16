@@ -11,12 +11,3 @@
     border-radius: 50%;
     
 }
-.song>div{
-    display: none;
-}
-div.show{
-    display: block !important;
-}
-.hide{
-    display: none;
-}

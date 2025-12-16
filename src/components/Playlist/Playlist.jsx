@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import songs from "./data";
 import Song from "../Song/Song";
-import styles from "./Playlist.module.css"
+import styles from "./Playlist.module.css";
 
 const Playlist = () => {
-  const showSong = (song, index) => <Song key={index} song={song} />;
+  const [playSong, setPlaySong] = useState("");
+  const showSong = (song, index) => (
+    <Song key={index} song={song} setPlaySong={setPlaySong} />
+  );
   return (
     <section>
       <h2>Playlist</h2>
       <div className={styles.playlist}>{songs.map(showSong)}</div>
+      <p>Play now : {playSong}</p>
     </section>
   );
 };

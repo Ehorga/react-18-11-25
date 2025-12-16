@@ -3,24 +3,20 @@ import React, { useState } from "react";
 import styles from "./Song.module.css";
 
 const Song = (props) => {
-  const { song } = props;
+  const { song, setPlaySong } = props;
   const [isSelect, setIsSelect] = useState(false);
-  const [isDesc, setIsDesc] = useState(false);
   const selectSong = () => {
     setIsSelect(!isSelect);
-  };
-  const showDescription = () => {
-    setIsDesc(!isDesc);
+    setPlaySong(song.title);
   };
   return (
     <article
       className={styles.song}
       onClick={selectSong}
       style={{ border: isSelect ? "1px solid lime" : "1px solid black" }}
-      onDoubleClick={showDescription}
     >
       <img src={song.image} alt={song.artist} />
-      <div className={isDesc ? styles.show : styles.hide}>
+      <div>
         <h3>{song.title}</h3>
         <p>{song.artist}</p>
         <p>{song.genre}</p>
@@ -35,6 +31,7 @@ Song.propTypes = {
     genre: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
   }).isRequired,
+  setPlaySong: PropTypes.func.isRequired,
 };
 
 export default Song;
