@@ -2,25 +2,32 @@
   background-color: rgb(181, 181, 181);
   border: 1px solid black;
   border-radius: 10px;
-  display: flex;
-  justify-content: space-between;
   padding: 15px;
   width: 40%;
   min-width: 200px;
 }
-.herois{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
+.herois {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
 }
-.title{
-    text-align: center;
+.title {
+  text-align: center;
 }
-.select{
-    background-color:aquamarine;
+.select {
+  background-color: aquamarine;
 }
-.selectHero{
-    display: flex;
-    justify-content: center;
+.selectHero {
+  display: flex;
+  justify-content: center;
+}
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.info button{
+    background-color: transparent;
+    border: 0;
 }
