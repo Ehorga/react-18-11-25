@@ -1,10 +1,10 @@
 import "./App.css";
-import Herois from './components/Herois/Herois';
+import LaptopConfigurator from "./components/LaptopConfigurator/LaptopConfigurator";
 
 const App = () => {
   return (
     <>
-      <Herois/>
+      <LaptopConfigurator/>
     </>
   );
 };

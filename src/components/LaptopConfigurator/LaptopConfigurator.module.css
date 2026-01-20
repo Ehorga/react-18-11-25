@@ -1,0 +1,31 @@
+.section {
+  background-color: rgb(187, 187, 187);
+  width: 400px;
+  padding: 20px;
+  margin: auto;
+}
+.section > h2 {
+  text-align: center;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+.column > select,
+.column > input {
+  padding: 8px;
+}
+.section fieldset {
+  border: none;
+  padding: 0;
+}
+.section button{
+    background-color:rgb(80, 80, 255);
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+}
