@@ -6,6 +6,7 @@ const LaptopConfigurator = () => {
   const [CPU, setCPU] = useState("");
   const [RAM, setRam] = useState("");
   const [OPTIONS, setOPTIONS] = useState([]);
+  const [Amount, setAmount] = useState(1);
   const showOption = (processor) => (
     <option value={processor.name} key={processor.name}>
       {processor.name} (+{processor.price})
@@ -52,6 +53,10 @@ const LaptopConfigurator = () => {
     setOPTIONS(newOptions);
     console.log(value);
   };
+  const changeAmount = (event) => {
+    const value = event.target.value;
+    setAmount(Number(value));
+  };
   const calculate = () => {
     const CPUprice = laptopData.processors.find(
       (processor) => CPU === processor.name,
@@ -59,11 +64,17 @@ const LaptopConfigurator = () => {
     const RAMprice = laptopData.ramVariants.find(
       (ramVariant) => RAM === ramVariant.name,
     ).price;
-    const summa = CPUprice + RAMprice;
-    setResult({ CPU, RAM, OPTIONS, summa });
+    const OptionPrice = OPTIONS.reduce((sum, option) => {
+      const optionPrice = laptopData.extraOptions.find(
+        (opt) => opt.name === option,
+      ).price;
+      return sum + optionPrice;
+    }, 0);
+    const summa = (CPUprice + RAMprice + OptionPrice) * Amount;
+    setResult({ CPU, RAM, OPTIONS, Amount, summa });
     console.log(summa);
   };
-  const isDisabled = false;
+  const isDisabled = !CPU || !RAM;
   return (
     <section className={styles.section}>
       <h2>Конфігуратор ноутбука</h2>
@@ -85,7 +96,7 @@ const LaptopConfigurator = () => {
         </fieldset>
         <label className={styles.column}>
           <span>4. Кількість пристроїв</span>
-          <input type="number" />
+          <input type="number" value={Amount} min={1} onChange={changeAmount} />
         </label>
       </div>
       <button onClick={calculate} disabled={isDisabled}>
@@ -104,7 +115,11 @@ const LaptopConfigurator = () => {
           </p>
           <p>
             <em>Опції:</em>
-            {result.OPTIONS.length?result.OPTIONS.join(","): "немає"}
+            {result.OPTIONS.length ? result.OPTIONS.join(",") : "немає"}
+          </p>
+          <p>
+            <em>Кількість:</em>
+            {result.Amount}
           </p>
           <p>
             <strong>Підсумкова сума: {result.summa}$</strong>
