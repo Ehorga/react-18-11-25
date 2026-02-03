@@ -1,10 +1,10 @@
 import "./App.css";
-import LaptopConfigurator from "./components/LaptopConfigurator/LaptopConfigurator";
+import PizzaConstructor from "./components/PizzaConstructor/PizzaConstructor";
 
 const App = () => {
   return (
     <>
-      <LaptopConfigurator/>
+      <PizzaConstructor/>
     </>
   );
 };
