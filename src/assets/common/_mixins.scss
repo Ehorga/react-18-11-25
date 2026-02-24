@@ -1,0 +1,9 @@
+@mixin borderRadius($radius){
+    border-radius: $radius;
+}
+@mixin wrape(){
+    width: 90%;
+    max-width: 1000px;
+    min-width: 350px;
+    margin: auto;
+}

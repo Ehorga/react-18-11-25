@@ -1,3 +1,4 @@
+import styles from "./PizzaConstructor.module.scss";
 import { useState } from "react";
 import {
   PIZZA_SIZES,
@@ -59,7 +60,7 @@ const PizzaConstructor = () => {
   };
   if (isOrder) {
     return (
-      <article>
+      <article className={styles.thanks}>
         <h2>Дякуємо за замовлення</h2>
         <p>Очікуйте доставку піци.</p>
         <p>
@@ -70,7 +71,7 @@ const PizzaConstructor = () => {
     );
   }
   return (
-    <section>
+    <section className={styles.wrape}>
       <h2>Конструктор піци</h2>
       <form
         onSubmit={(event) => {
@@ -105,9 +106,9 @@ const PizzaConstructor = () => {
             min={1}
           />
         </fieldset>
-        <button type="submit">Замовити</button>
+        <button type="submit" className={styles.btn}>Замовити</button>
       </form>
-      <article>
+      <article className={styles.order}>
         <h2>Ваше замовлення:</h2>
         <p>
           <strong>Розмір:</strong>

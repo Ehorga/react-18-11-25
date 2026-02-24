@@ -1,0 +1,44 @@
+@use "/src/assets/common/colors" as *;
+@use "/src/assets/common/mixins" as *;
+@use "/src/assets/common/templates" as *;
+$pd: 20px;
+$radius: 10px;
+.wrape {
+  @include wrape();
+  @include borderRadius($radius);
+  background-color: $bgLight;
+  padding: $pd;
+  h2 {
+    @extend %heading;
+  }
+  fieldset {
+    @include borderRadius($radius);
+    border: 1px solid $bgDark;
+  }
+  legend {
+    color: $bgDark;
+  }
+  .btn {
+    @include borderRadius($radius);
+    color: white;
+    background-color: $bgDark;
+    width: 100%;
+    &:hover {
+      background-color: $bgHover;
+    }
+  }
+  .order {
+    @include borderRadius($radius);
+    border: 1px solid $bgDark;
+    padding: $pd - 5px;
+  }
+}
+.thanks {
+  @include wrape();
+  @include borderRadius($radius);
+  background-color: $bgLight;
+  padding: $pd;
+  h2{
+     @extend %heading;
+  }
+}
