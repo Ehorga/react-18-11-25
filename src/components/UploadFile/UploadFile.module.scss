@@ -1,0 +1,31 @@
+@use "/src/assets/common/colors" as *;
+@use "/src/assets/common/mixins" as *;
+@use "/src/assets/common/templates" as *;
+$pd: 10px;
+.upload{
+    @include wrape();
+    @include borderRadius(5px);
+    background-color: $bgDark;
+    color: $bgLight;
+    max-width: 400px;
+    text-align: center;
+    padding: $pd;
+    button{
+        @include borderRadius(5px);
+        background-color: $bgLight;
+        color: $bgDark;
+        padding: $pd;
+        border: none;
+    }
+    .progressBar{
+        @include borderRadius(10px);
+        background-color: $bgLight;
+        height: 20px;
+        div{
+             background-color: $accent;
+             height: 100%;
+             border-radius: inherit;
+             width: 0;
+        }
+    }
+}

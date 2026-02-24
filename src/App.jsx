@@ -1,10 +1,11 @@
 import "./App.css";
-import PizzaConstructor from "./components/PizzaConstructor/PizzaConstructor";
+
+import UploadFile from "./components/UploadFile/UploadFile";
 
 const App = () => {
   return (
     <>
-      <PizzaConstructor/>
+      <UploadFile/>
     </>
   );
 };
