@@ -16,6 +16,10 @@ $pd: 10px;
         color: $bgDark;
         padding: $pd;
         border: none;
+        &:disabled{
+           cursor: not-allowed;
+           opacity: 0.5;
+        }
     }
     .progressBar{
         @include borderRadius(10px);
