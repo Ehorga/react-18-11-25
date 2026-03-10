@@ -1,11 +1,11 @@
 import "./App.css";
+import MoodTracker from "./components/MoodTracker/MoodTracker";
 
-import UploadFile from "./components/UploadFile/UploadFile";
 
 const App = () => {
   return (
     <>
-      <UploadFile/>
+      <MoodTracker/>
     </>
   );
 };
