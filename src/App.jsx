@@ -1,11 +1,17 @@
 import "./App.css";
-import MoodTracker from "./components/MoodTracker/MoodTracker";
+import TextSizeWrapper from "./components/TextSizeWrapper/TextSizeWrapper";
+import QuoteList from './components/QuoteList/QuoteList';
+import MoodTracker from './components/MoodTracker/MoodTracker';
+
 
 
 const App = () => {
   return (
     <>
+    <TextSizeWrapper>
       <MoodTracker/>
+      <QuoteList/>
+     </TextSizeWrapper>
     </>
   );
 };

@@ -1,0 +1,5 @@
+@use "/src/assets/common/colors" as *;
+.active{
+    background-color:$bgDark ;
+    color: $bgLight;
+}

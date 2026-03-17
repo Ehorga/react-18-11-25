@@ -8,7 +8,7 @@ const QuoteList = () => {
   const showQuotes = (quote) => (
     <Quote key={quote.text} text={quote.text} author={quote.author} setCount = {setCount}/>
   );
-  return <section className={styles.quotes}><p>{count}</p> {quotes.map(showQuotes)}</section>;
+  return <section className={styles.quotes}><p> amount selected: {count}</p> {quotes.map(showQuotes)}</section>;
 };
 
 export default QuoteList;
