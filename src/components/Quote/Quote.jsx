@@ -1,14 +1,16 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./Quote.module.css";
+import { ContextClick } from "../../contexts";
 
 const Quote = (props) => {
+  const { setAmountClicks } = useContext(ContextClick);
   const { text, author, setCount } = props;
   const [isChoose, setIsChoose] = useState(false);
-  console.log(isChoose);
   const changeChoose = () => {
     setIsChoose(!isChoose);
     setCount((prev) => (isChoose ? prev - 1 : prev + 1));
+    setAmountClicks((prev) => prev + 1);
   };
   return (
     <blockquote

@@ -1,13 +1,16 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./Song.module.css";
+import { ContextClick } from './../../contexts/index';
 
 const Song = (props) => {
+  const { setAmountClicks } = useContext(ContextClick);
   const { song, setPlaySong } = props;
   const [isSelect, setIsSelect] = useState(false);
   const selectSong = () => {
     setIsSelect(!isSelect);
     setPlaySong(song.title);
+    setAmountClicks((prev) => prev + 1);
   };
   return (
     <article

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import songs from "./data";
 import Song from "../Song/Song";
 import styles from "./Playlist.module.css";
+import { ContextClick } from "../../contexts";
 
 const Playlist = () => {
   const [playSong, setPlaySong] = useState("");

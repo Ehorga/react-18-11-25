@@ -1,10 +1,12 @@
-import React from "react";
+import {useContext} from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { TEXT_SIZE_OPTIONS } from "../../constants";
 import styles from "./TextSize.module.scss";
+import { ContextClick } from "../../contexts";
 
 const TextSizeControls = (props) => {
+  const {amountClicks }= useContext(ContextClick)
   const { size, setSize } = props;
   const showButton = ([title, option]) => (
     <button
@@ -18,7 +20,10 @@ const TextSizeControls = (props) => {
     </button>
   );
 
-  return <div>{Object.entries(TEXT_SIZE_OPTIONS).map(showButton)}</div>;
+  return <>
+  <div>{Object.entries(TEXT_SIZE_OPTIONS).map(showButton)}</div>
+  <div>amount click {amountClicks}</div>
+  </> 
 };
 
 TextSizeControls.propTypes = {};

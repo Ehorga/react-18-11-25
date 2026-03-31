@@ -1,18 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { moods } from "../../constants";
 import styles from "./MoodTracker.module.scss";
+import { ContextClick } from "../../contexts";
 const STORAGEKEY = "moodHistory";
 function loadHistory() {
   try {
     const historyLoad = localStorage.getItem(STORAGEKEY);
     return historyLoad ? JSON.parse(historyLoad) : [];
-  } catch  {
+  } catch {
     return [];
   }
 }
 const MoodTracker = () => {
   const [moodSelect, setMoodSelect] = useState("");
   const [moodHistory, setMoodHistory] = useState(loadHistory);
+  const { setAmountClicks } = useContext(ContextClick);
   useEffect(() => {
     localStorage.setItem(STORAGEKEY, JSON.stringify(moodHistory));
   }, [moodHistory]);
@@ -27,6 +29,7 @@ const MoodTracker = () => {
       key={mood}
       onClick={() => {
         selectMood(mood);
+        setAmountClicks((prev) => prev + 1);
       }}
     >
       {mood}
