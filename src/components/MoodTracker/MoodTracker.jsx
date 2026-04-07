@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { moods } from "../../constants";
 import styles from "./MoodTracker.module.scss";
 import { ContextClick } from "../../contexts";
+import withContextClick from './../HOCs/index';
 const STORAGEKEY = "moodHistory";
 function loadHistory() {
   try {
@@ -11,10 +12,11 @@ function loadHistory() {
     return [];
   }
 }
-const MoodTracker = () => {
+const MoodTracker = (props) => {
   const [moodSelect, setMoodSelect] = useState("");
   const [moodHistory, setMoodHistory] = useState(loadHistory);
-  const { setAmountClicks } = useContext(ContextClick);
+  // const { setAmountClicks } = useContext(ContextClick);
+  const { setAmountClicks } = props;
   useEffect(() => {
     localStorage.setItem(STORAGEKEY, JSON.stringify(moodHistory));
   }, [moodHistory]);
@@ -56,4 +58,4 @@ const MoodTracker = () => {
   );
 };
 
-export default MoodTracker;
+export default withContextClick(MoodTracker);
