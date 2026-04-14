@@ -1,0 +1,39 @@
+@use "/src/assets/common/colors" as *;
+@use "/src/assets/common/mixins" as *;
+.header {
+  @include wrape();
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      display: inline-block;
+      margin: 0 0.5em;
+    }
+  }
+}
+.link {
+  color: $text;
+  background-color: $bgLight;
+  display: inline-block;
+  padding: 0.5em;
+  text-decoration: none;
+  @include borderRadius(10px);
+  &:hover {
+    color: $bgLight;
+    background-color: $bgDark;
+  }
+}
+.active {
+  color: $bgLight;
+  background-color: $bgDark;
+}
+.logo {
+  color: $bgDark;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.7em;
+}
