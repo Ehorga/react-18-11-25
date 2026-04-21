@@ -4,6 +4,7 @@ const HomePage = () => {
         <section>
             <h1>HomePage</h1>
             <MoodTracker/>
+            
         </section>
     );
 }
