@@ -22,6 +22,9 @@ const Header = () => {
           <li>
             <NavLink to="/heros" className={getActive}>Heroes</NavLink>
           </li>
+          <li>
+            <NavLink to="/challange" className={getActive}>Chalange</NavLink>
+          </li>
         </ul>
       </nav>
     </header>
