@@ -1,4 +1,5 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { challangeFormShema } from "./../../validations/challangeFormShema";
 const directionLabels = {
   "content-creator": "Контент-кріейтор",
   gamedev: "Геймдев",
@@ -10,7 +11,8 @@ const experienceLabels = {
   explorer: "Вже пробував",
   pro: "Впевнено в темі",
 };
-const ChallangeForm = () => {
+const ChallangeForm = (props) => {
+  const { setChallengData } = props;
   const showOption = ([key, value]) => (
     <option value={key} key={key}>
       {value}
@@ -24,6 +26,7 @@ const ChallangeForm = () => {
   );
   return (
     <Formik
+      validationSchema={challangeFormShema}
       initialValues={{
         nickname: "",
         age: "",
@@ -32,6 +35,11 @@ const ChallangeForm = () => {
         level: "newbie",
         about: "",
         ready: false,
+      }}
+      onSubmit={(values, formikBag) => {
+        setChallengData(values);
+        console.log(values);
+        formikBag.resetForm();
       }}
     >
       {({ values }) => {

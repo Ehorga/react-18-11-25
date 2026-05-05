@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ChallangeForm from '../components/ChallengeForm/ChallangeForm';
 
 const ChallangePage = () => {
+    const [challengData, setChallengData] = useState(null);
     return (
         <div>
             <h1>Teen Creator Camp</h1>
             <section>
                 <h2>Заявка на участь</h2>
-                <ChallangeForm/>
+                <ChallangeForm setChallengData= {setChallengData}/>
             </section>
+            {challengData?<section><h2>Заявку прийнято</h2><p>{challengData.nickname}, ти в списку кандидатів</p></section>:
             <section>
                 <h2>Порада</h2>
                 <p>Напиши в мотивації щось конкретне: який контент хочеш створити, яку гру мрієш зібрати або який трек записати. Так заявка виглядатиме сильніше.</p>
-            </section>
+            </section>}
         </div>
     );
 }
