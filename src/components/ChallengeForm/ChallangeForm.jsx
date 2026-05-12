@@ -1,5 +1,6 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { challangeFormShema } from "./../../validations/challangeFormShema";
+import styles from "./ChallangeForm.module.scss";
 const directionLabels = {
   "content-creator": "Контент-кріейтор",
   gamedev: "Геймдев",
@@ -44,7 +45,7 @@ const ChallangeForm = (props) => {
     >
       {({ values }) => {
         return (
-          <Form>
+          <Form className={styles.form}>
             <label>
               <span>
                 Ім'я або нікнейм<span>*</span>
@@ -85,7 +86,7 @@ const ChallangeForm = (props) => {
               </Field>{" "}
               <ErrorMessage name="direction" />
             </label>
-            <fieldset>
+            <fieldset className={styles.radio}>
               <legend>
                 Рівень досвіду <span>*</span>
               </legend>
@@ -103,7 +104,7 @@ const ChallangeForm = (props) => {
               <ErrorMessage name="about" component="p" />
               <p>символів: {values.about.length}</p>
             </label>
-            <label>
+            <label className={styles.checkbox}>
               <Field type="checkbox" name="ready" />
               <span>Готовий(-а) брати участь у мінічеленджах табору</span>
             </label>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import ChallangeForm from '../components/ChallengeForm/ChallangeForm';
-
+import styles from "./pages.module.scss";
 const ChallangePage = () => {
     const [challengData, setChallengData] = useState(null);
     return (
-        <div>
+        <div className={styles.challenge}>
             <h1>Teen Creator Camp</h1>
             <section>
                 <h2>Заявка на участь</h2>

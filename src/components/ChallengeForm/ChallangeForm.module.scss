@@ -1,0 +1,25 @@
+.form{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    input, select, textarea , button{
+        padding: 0.7em;
+    }
+    label{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 20px;
+        font-size: 18px;
+        span{
+            color: red;
+        }
+    }
+    .radio label , .checkbox{
+        display:inline-flex;
+        flex-direction: row;
+        margin-right: 20px; 
+
+    }
+   
+}
