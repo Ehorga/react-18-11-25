@@ -1,9 +1,11 @@
 import React from 'react';
+import BooksCotalog from '../components/BooksCatalog/BooksCotalog';
 
 const BooksPage = () => {
     return (
         <div>
-            books
+            <div>filter</div>
+            <div><BooksCotalog/></div>
         </div>
     );
 }
