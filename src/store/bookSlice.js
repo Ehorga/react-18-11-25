@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { getAllBooks } from "../api";
 
 export const getBooksThunk = createAsyncThunk(
   "books/getBooksThunk",
   async (options, thunkAPI) => {
     try {
-      const response = await fetch("https://fakerapi.it/api/v2/books");
-      const data = await response.json();
-      return data.data;
+      const response = await getAllBooks(options);
+      return response.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

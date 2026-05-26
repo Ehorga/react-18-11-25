@@ -18,3 +18,16 @@
   max-width: 900px;
   margin: auto;
 }
+.flex {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  & > div {
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 50%;
+  }
+}

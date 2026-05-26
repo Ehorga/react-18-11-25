@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getBooksThunk } from "./../../store/bookSlice";
+import Book from "./Book";
 
 const BooksCotalog = () => {
   const dispatch = useDispatch();
@@ -17,7 +18,7 @@ const BooksCotalog = () => {
   return (
     <section>
       {books.map((book) => (
-        <p key={book.id}>{book.title}</p>
+        <Book key={book.id} book= {book}/>
       ))}
     </section>
   );
