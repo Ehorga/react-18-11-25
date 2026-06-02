@@ -1,0 +1,10 @@
+.filter{
+    label{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1em;
+        &>*{
+            padding: 0.5em;
+        }
+    }
+}

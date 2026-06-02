@@ -1,9 +1,9 @@
-
+import styles from "./BooksCatalog.module.scss"
 
 const Book = (props) => {
     const {book} = props
     return (
-        <article>
+        <article className={styles.book}>
             <p>{book.genre}</p>
             <h2>{book.title}</h2>
             <p>Автор: {book.author}</p>
