@@ -1,15 +1,9 @@
-// import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-// import { getBooksThunk } from "./../../store/bookSlice";
 import Book from "./Book";
-import styles from "./BooksCatalog.module.scss"
+import styles from "./BooksCatalog.module.scss";
 
-const BooksCotalog = () => {
-  // const dispatch = useDispatch();
-  const { books, isPending, error } = useSelector((state) => state.books);
-  // useEffect(() => {
-  //   dispatch(getBooksThunk());
-  // }, [dispatch]);
+const BooksCotalog = (props) => {
+  const { books, isPending, error } = props;
+
   if (isPending) {
     return <p>loading</p>;
   }
@@ -19,7 +13,7 @@ const BooksCotalog = () => {
   return (
     <section className={styles.books}>
       {books.map((book) => (
-        <Book key={book.id} book= {book}/>
+        <Book key={book.id} book={book} />
       ))}
     </section>
   );
