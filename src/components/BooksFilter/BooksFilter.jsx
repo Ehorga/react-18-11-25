@@ -10,7 +10,8 @@ const sortOptions = [
   { value: "year-asc", label: "Старіші спочатку" },
 ];
 const BooksFilter = (props) => {
-  const { setQuantity, quantity, sortBy, setSortBy } = props;
+  const { setQuantity, quantity, sortBy, setSortBy, setSearchStr, searchStr } =
+    props;
   const showOption = (quantity) => (
     <option value={quantity} key={quantity}>
       {quantity}
@@ -36,6 +37,7 @@ const BooksFilter = (props) => {
         </select>
       </label>
       <label>
+        <span>sort</span>
         <select
           value={sortBy}
           onChange={(event) => {
@@ -44,6 +46,10 @@ const BooksFilter = (props) => {
         >
           {sortOptions.map(showOptionSort)}
         </select>
+      </label>
+      <label>
+        <span>search</span>
+        <input type="text" value={searchStr} onChange={(event)=>{setSearchStr(event.target.value)}}/>
       </label>
     </section>
   );

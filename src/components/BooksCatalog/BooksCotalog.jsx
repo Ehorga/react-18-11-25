@@ -1,5 +1,6 @@
 import Book from "./Book";
 import styles from "./BooksCatalog.module.scss";
+import { getBooksWord } from "../../utils/getPluralForm";
 
 const BooksCotalog = (props) => {
   const { books, isPending, error } = props;
@@ -11,11 +12,15 @@ const BooksCotalog = (props) => {
     return <p>error</p>;
   }
   return (
-    <section className={styles.books}>
-      {books.map((book) => (
-        <Book key={book.id} book={book} />
-      ))}
-    </section>
+    <>
+      <p>За вашим запитом знайдено {books.length} {getBooksWord(books.length)}</p>
+
+      <section className={styles.books}>
+        {books.map((book) => (
+          <Book key={book.id} book={book} />
+        ))}
+      </section>
+    </>
   );
 };
 
