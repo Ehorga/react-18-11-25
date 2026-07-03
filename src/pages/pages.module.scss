@@ -36,3 +36,19 @@
     flex-direction: column;
   }
 }
+.bookSection{
+  width: 100%;
+  max-width: 900px;
+  margin: auto;
+  margin-top: 1em;
+  a{
+    color: inherit;
+    text-decoration: none;
+  }
+  article{
+    border-radius:10px;
+    box-shadow:1px 1px 5px grey ;
+    padding: 1.5em;
+    margin-top: 1.5em;
+  }
+}
