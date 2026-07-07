@@ -12,6 +12,7 @@ import HeroPage from "./pages/HeroPage";
 import ChallangePage from "./pages/ChallangePage";
 import BooksPage from "./pages/BooksPage";
 import BookPage from "./pages/BookPage";
+import WeatherPage from "./pages/WeatherPage";
 
 const App = () => {
   const [amountClicks, setAmountClicks] = useState(0);
@@ -24,6 +25,7 @@ const App = () => {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/weather" element={<WeatherPage />} />
               <Route path="/game" element={<GamePage />} />
               <Route path="/constructor" element={<ConstructorPage />} />
               <Route path="/heros" element={<HeroPage />} />

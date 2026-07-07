@@ -14,6 +14,9 @@ const Header = () => {
             <NavLink to="/" className={getActive}>Home</NavLink>
           </li>
           <li>
+            <NavLink to="/weather" className={getActive}>Weather</NavLink>
+          </li>
+          <li>
             <NavLink to="/game" className={getActive}>Game</NavLink>
           </li>
           <li>
@@ -28,6 +31,7 @@ const Header = () => {
           <li>
             <NavLink to="/challange" className={getActive}>Chalange</NavLink>
           </li>
+          
         </ul>
       </nav>
     </header>
