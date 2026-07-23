@@ -9,7 +9,7 @@ const BooksCotalog = (props) => {
     return <p>loading</p>;
   }
   if (error) {
-    return <p>error</p>;
+    return <p>На жаль, сервер тимчасово не доступний. Спробуйте пізніше.</p>;
   }
   return (
     <>

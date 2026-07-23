@@ -25,3 +25,4 @@ export const SORT_FILTER = {
   AUTHOR_ASC: "author-asc",
   AUTHOR_DESC: "author-desc",
 };
+export const WEEKDAYS = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
