@@ -1,0 +1,67 @@
+@use "/src/assets/common/mixins" as *;
+@use "/src/assets/common/colors" as *;
+.weather{
+    @include wrape();
+}
+.currentDay,
+.days,
+.day {
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 1em;
+  
+}
+.parent{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+    &>p{
+        background-color:$bgLight;
+        padding: 0.5em;
+    }
+}
+.label{
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-top: 2em;
+}
+.currentDay{
+    width: 25%;
+    margin-right: auto;
+
+    @media screen and (max-width:720px){
+        width: 600px;
+        margin-bottom: 0.5em;
+    }
+}
+.days{
+    width: 74%;
+     @media screen and (max-width:720px){
+        width: 600px;
+    }
+}
+.day{
+    width: 19%;
+     @media screen and (max-width:720px){
+        width: 48%;
+        margin-bottom: 0.5em;
+    }
+    
+}
+.code{
+    display: flex;
+    h3{
+        margin: 0;
+        
+    }
+}
+.iconCode{
+    width: 50px;
+    height: 50px;
+    background-color: $bgLight;
+    border-radius:50%;
+    text-align: center;
+    line-height: 50px;
+    margin-right: 1em;
+}

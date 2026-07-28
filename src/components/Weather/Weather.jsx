@@ -4,6 +4,7 @@ import { getWeatherThunk } from "./../../store/weatherSlice";
 import CODES from "./codes.json";
 import CITIES from "./cities.json";
 import DayWeather from "./DayWeather";
+import styles from "./Weather.module.scss";
 
 const Weather = () => {
   const dispatch = useDispatch();
@@ -39,39 +40,46 @@ const Weather = () => {
     return <p>На жаль, сервер тимчасово не доступний. Спробуйте пізніше.</p>;
   }
   return (
-    <section>
-      <div>
-        <h1>Погода</h1>
-        <p>Актуальний прогноз від Open-Meteo для обласних центрів України.</p>
+    <section className={styles.weather}>
+      <div className={styles.parent}>
+        <div>
+          <h1>Погода</h1>
+          <p>Актуальний прогноз від Open-Meteo для обласних центрів України.</p>
+        </div>
+        <label className={styles.label}>
+          <span>Місто</span>
+          <select
+            value={currentCity}
+            onChange={(event) => setCurrentCity(event.target.value)}
+          >
+            {CITIES.map(showCity)}
+          </select>
+        </label>
       </div>
-      <label>
-        <span>Місто</span>
-        <select
-          value={currentCity}
-          onChange={(event) => setCurrentCity(event.target.value)}
-        >
-          {CITIES.map(showCity)}
-        </select>
-      </label>
-      <div>
-        <article>
+      <div className={styles.parent}>
+        <article className={styles.currentDay}>
           <h2>{currentCity}</h2>
           <p>Оновлено: {weather?.current?.time}</p>
-          <div>
-            <span>{getIcon(weather?.current?.weather_code)}</span>
+          <div className={styles.code}>
+            <span className={styles.iconCode}>
+              {getIcon(weather?.current?.weather_code)}
+            </span>
             <div>
               <h3>{weather?.current?.temperature_2m}°C</h3>
               <p>{getLabel(weather?.current?.weather_code)}</p>
             </div>
           </div>
-          <div>
+          <div className={styles.parent}>
             <p>Опади {weather?.current?.rain} мм</p>
             <p>Вітер {weather?.current?.wind_speed_10m} км/год</p>
           </div>
         </article>
-        <section>
+
+        <section className={styles.days}>
           <h2>Прогноз на 5 днів</h2>
-          <div>{weather?.daily?.time?.map(showDayWeather)}</div>
+          <div className={styles.parent}>
+            {weather?.daily?.time?.map(showDayWeather)}
+          </div>
         </section>
       </div>
     </section>
