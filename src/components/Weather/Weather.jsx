@@ -1,38 +1,47 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getWeatherThunk } from "./../../store/weatherSlice";
 import CODES from "./codes.json";
 import CITIES from "./cities.json";
 import DayWeather from "./DayWeather";
 import styles from "./Weather.module.scss";
+import useWeather from "./useWeather";
 
 const Weather = () => {
-  const dispatch = useDispatch();
-  const [currentCity, setCurrentCity] = useState(CITIES[0].name);
-  const { weather, isPending, error } = useSelector((state) => state.weather);
-  const cityGeoInfo = CITIES.find((city) => city.name === currentCity);
-  useEffect(() => {
-    dispatch(getWeatherThunk(cityGeoInfo));
-  }, [dispatch, cityGeoInfo]);
-  const getIcon = (code) => CODES[code]?.icon;
-  const getLabel = (code) => CODES[code]?.label;
+  const {
+    isPending,
+    error,
+    icon,
+    label,
+    codes,
+    winds,
+    precipitations,
+    tempMins,
+    tempMaxs,
+    currentCity,
+    setCurrentCity,
+    time,
+    temperature,
+    rain,
+    wind,
+    times,
+  } = useWeather();
   const showCity = (city) => (
     <option value={city.name} key={city.name}>
       {city.name}
     </option>
   );
-  const showDayWeather = (day, index) => (
+  const showDayWeather = (day, index) => {
+    const code = CODES[codes[index]]
+    return(
     <DayWeather
       day={day}
-      icon={CODES[weather?.daily?.weather_code[index]]?.icon}
-      label={CODES[weather?.daily?.weather_code[index]]?.label}
-      wind={weather?.daily?.wind_speed_10m_max[index]}
-      precipitation={weather?.daily?.precipitation_probability_max[index]}
-      tempMin={weather?.daily?.temperature_2m_min[index]}
-      tempMax={weather?.daily?.temperature_2m_max[index]}
+      icon={code?.icon}
+      label={code?.label}
+      wind={winds[index]}
+      precipitation={precipitations[index]}
+      tempMin={tempMins[index]}
+      tempMax={tempMaxs[index]}
       key={day}
     />
-  );
+  )}
   if (isPending) {
     return <p>Loading</p>;
   }
@@ -59,27 +68,23 @@ const Weather = () => {
       <div className={styles.parent}>
         <article className={styles.currentDay}>
           <h2>{currentCity}</h2>
-          <p>Оновлено: {weather?.current?.time}</p>
+          <p>Оновлено: {time}</p>
           <div className={styles.code}>
-            <span className={styles.iconCode}>
-              {getIcon(weather?.current?.weather_code)}
-            </span>
+            <span className={styles.iconCode}>{icon}</span>
             <div>
-              <h3>{weather?.current?.temperature_2m}°C</h3>
-              <p>{getLabel(weather?.current?.weather_code)}</p>
+              <h3>{temperature}°C</h3>
+              <p>{label}</p>
             </div>
           </div>
           <div className={styles.parent}>
-            <p>Опади {weather?.current?.rain} мм</p>
-            <p>Вітер {weather?.current?.wind_speed_10m} км/год</p>
+            <p>Опади {rain} мм</p>
+            <p>Вітер {wind} км/год</p>
           </div>
         </article>
 
         <section className={styles.days}>
           <h2>Прогноз на 5 днів</h2>
-          <div className={styles.parent}>
-            {weather?.daily?.time?.map(showDayWeather)}
-          </div>
+          <div className={styles.parent}>{times?.map(showDayWeather)}</div>
         </section>
       </div>
     </section>
