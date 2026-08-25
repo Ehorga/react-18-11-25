@@ -23,15 +23,16 @@ const PARAMETERS = {
   wind: {
     label: 'Швидкість вітру',
     title: 'Швидкість вітру, км/год',
-    unit: ' км/год',
+    unit: 'км/год',
     color: '#16a34a',
   },
 };
 function useWeatherCharts() {
   const [selectedParameter, setSelectedParameter] = useState("max");
   const { weather, isPending, error } = useSelector((state) => state.weather);
+  const formatDate = (date) => (new Intl.DateTimeFormat("uk-UA", {weekday:"long", day:"numeric", month:'short'}).format(new Date(date)))
   const chartData = weather?.daily?.time?.map((date, index) => ({
-    name: date.toString(),
+    name: formatDate(date),
     max: weather?.daily?.temperature_2m_max[index],
     min: weather?.daily?.temperature_2m_min[index],
     rain: weather?.daily?.precipitation_probability_max[index],

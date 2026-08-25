@@ -1,8 +1,16 @@
 .chartSection {
   max-width: 1000px;
-  width: 60%;
+  width: 90%;
   margin: auto;
-  div {
+}
+.chart{
+    width: 100%;
+    min-height: 50vh;
     background-color: rgb(170, 170, 170);
-  }
+    padding: 1em;
+}
+.coloms{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
